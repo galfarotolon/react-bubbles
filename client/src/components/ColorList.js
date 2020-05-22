@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
-import { useParams, useHistory } from "react-router-dom";
-
 const initialColor = {
   color: "",
   code: { hex: "" }
@@ -14,10 +12,9 @@ const ColorList = ({ colors, updateColors }) => {
 
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
+  const [colorToAdd, setColorToAdd] = useState(initialColor);
 
-  const { id } = useParams();
 
-  const { push } = useHistory();
 
 
   const editColor = color => {
@@ -40,13 +37,18 @@ const ColorList = ({ colors, updateColors }) => {
         console.log('hello', res.data)
         setColorToEdit(res.data)
 
-        //make another axios get call
-        //update state
-        //trigger refresh
+        axiosWithAuth()
+          .get(`http://localhost:5000/api/colors/`)
+          .then(res => {
+            console.log(res.data)
+            updateColors(res.data)
+
+
+          })
+
 
       })
 
-    //updateColors.id
   };
 
   const deleteColor = color => {
@@ -57,9 +59,22 @@ const ColorList = ({ colors, updateColors }) => {
       .then((res) => {
         console.log(res.data)
 
+        axiosWithAuth()
+          .get(`http://localhost:5000/api/colors/`)
+          .then(res => {
+            console.log(res.data)
+            updateColors(res.data)
+
+
+          })
+
+
       })
 
   };
+
+
+
 
   return (
     <div className="colors-wrap">
@@ -116,6 +131,7 @@ const ColorList = ({ colors, updateColors }) => {
       )}
       <div className="spacer" />
       {/* stretch - build another form here to add a color */}
+
     </div>
   );
 };

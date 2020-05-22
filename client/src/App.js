@@ -15,6 +15,9 @@ function App() {
     <Router>
       <div className="App">
 
+        <h1>Welcome to the Bubbles App!</h1>
+
+
         <Link to="/login">Login</Link>
 
         <Link to="/bubblepage">Bubble Page</Link>

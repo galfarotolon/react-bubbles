@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { useParams, useHistory } from "react-router-dom";
 
+
+
 const initialState = {
 
   credentials: {
@@ -56,24 +58,30 @@ const Login = () => {
 
   return (
     <>
-      <h1>Welcome to the Bubble App!</h1>
+      <h2>Please Log In to Continue</h2>
 
       <div>
+
         <form onSubmit={auth}>
+          <label > Username: &nbsp;
+            <input
+              type="text"
+              name="username"
+              placeholder='Username'
+              value={initialState.credentials.username}
+              onChange={changeHandler}
+            />
+          </label>
+
+          <label > Password: &nbsp;
           <input
-            type="text"
-            name="username"
-            placeholder='Username'
-            value={initialState.credentials.username}
-            onChange={changeHandler}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder='Password'
-            value={initialState.credentials.password}
-            onChange={changeHandler}
-          />
+              type="password"
+              name="password"
+              placeholder='Password'
+              value={initialState.credentials.password}
+              onChange={changeHandler}
+            />
+          </label>
           <button className='login-btn'>Log In</button>
         </form>
       </div>
