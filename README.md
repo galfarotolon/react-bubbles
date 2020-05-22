@@ -26,10 +26,33 @@ In this project you will create a login page and request a token from the server
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] Explain what a token is used for.
-- [ ] What steps can you take in your web apps to keep your data secure?
-- [ ] Describe how web servers work.
-- [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+ 1- Explain what a token is used for.
+ 
+Web applications usually require the client to be registered or logged in to be able to access most contents of the site. The server running these services can issue a JWT (JSON Web Token) as the authentication token, in exchange for correct login credentials. 
+Modern web services dealing with JSON data often use JWTs. These tokens, issued by the server, are strings of encrypted text, which can be stored on the client-side using local storage or session storage. The server can readily tell the client that it issued the token. It can also read the token and make decisions for data access based on the client’s permission.
+
+Once a token has been issued, this can allow users to access previously private routes that were blocked and could only be accessed with an authentication token.
+ 
+2-  What steps can you take in your web apps to keep your data secure?
+
+Using axiosWithAuth can be useful to make data secure. This call only triggers once the authentication has been passed (feeding the token payload to header). Using Private Route Path in protected routes is also a good way to keep data secure, as these data points/components can only be accessed after an authorization check has been passed. 
+ 
+ 3- Describe how web servers work.
+
+The internet is essentially a network of interconnected computers. The web is just one way to share data over the internet. It consists of a body of information stored on web servers, ready to be shared across the world.
+There are physical computer devices whose sole purpose is to store code from different places and share it across  the world at all times. This is what is known as a web server. When people store their code in these servers, the term is known as ‘hosting’. 
+ 
+ 
+The way users all over the world are able to access these ‘hosted’ sites and apps is via a domain, which is specified using an URL(uniform resource locator). These urls point straight  at any information the user is accessing at any given point. 
+ 
+ 4- Which HTTP methods can be mapped to the CRUD acronym that we use when 
+    interfacing with APIs/Servers.
+ 
+C- Create → This is the process of adding information into API/Server. It can either be done by the developer or the user via inputs. 
+R- Read → This is the process of displaying the data into the GUI so the user can visually access it. 
+U- Update → This comes into place when the user wants to edit a piece of data that has been already created and is displayed by the App. Say a user wants to edit the date of a given post, or the content of a blog, this operation accesses the data and allows the user to edit the content instead of having to create a new set of data. 
+D - Delete → The delete method is, as the name states, a way to get rid of data that was previously created, read or updated. This simply removes the data from the server/API. 
+
 
 
 ## Project Set Up
