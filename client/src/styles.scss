@@ -14,6 +14,7 @@ body,
   font-family: "Montserrat", sans-serif;
   text-align: center;
   display: flex;
+  flex-direction: column;
 
   svg {
     height: 100%;
@@ -34,6 +35,7 @@ body,
   height: 100%;
   width: 300px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  //margin: 0 auto;
 
   ul {
     list-style: none;
@@ -64,6 +66,7 @@ form {
   margin-top: 60px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   legend {
     padding-left: 40px;
@@ -80,7 +83,7 @@ form {
   }
 
   input {
-    width: 100px;
+    width: 50%;
   }
 }
 
@@ -96,4 +99,15 @@ form {
     padding: 3px 8px;
     margin-top: 16px;
   }
+}
+
+.login-btn{
+
+  width: 10%;
+
+}
+
+.bubblePage{
+  display: flex;
+  flex-direction: row;
 }
