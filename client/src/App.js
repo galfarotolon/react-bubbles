@@ -20,14 +20,22 @@ function App() {
 
         <Link to="/login">Login</Link>
 
+
+
+
+
         <Link to="/bubblepage">Bubble Page</Link>
         {/* 
           Build a PrivateRoute component that will 
           display BubblePage when you're authenticated 
         */}
 
+
+
         <Switch>
+
           <PrivateRoute exact path="/bubblepage" component={BubblePage} />
+
           <Route path="/login" component={Login} />
         </Switch>
 
